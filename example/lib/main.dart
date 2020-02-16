@@ -133,11 +133,11 @@ class _QRViewExampleState extends State<QRViewExample> {
     );
   }
 
-  _isFlashOn(String current) {
+  bool _isFlashOn(String current) {
     return flash_on == current;
   }
 
-  _isBackCamera(String current) {
+  bool _isBackCamera(String current) {
     return back_camera == current;
   }
 

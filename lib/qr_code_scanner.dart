@@ -68,7 +68,7 @@ class _QRViewState extends State<QRView> {
     if (widget.onQRViewCreated == null) {
       return;
     }
-    widget.onQRViewCreated(QRViewController._(id, widget.key));
+    widget.onQRViewCreated(QRViewController._(id, widget.key as GlobalKey));
   }
 }
 
@@ -105,9 +105,9 @@ class QRViewController {
   QRViewController._(int id, GlobalKey qrKey)
       : _channel = MethodChannel('net.touchcapture.qr.flutterqr/qrview_$id') {
     if (defaultTargetPlatform == TargetPlatform.iOS) {
-      final RenderBox renderBox = qrKey.currentContext.findRenderObject();
-      _channel.invokeMethod("setDimensions",
-          {"width": renderBox.size.width, "height": renderBox.size.height});
+      final RenderBox renderBox = qrKey.currentContext.findRenderObject() as RenderBox;
+      _channel.invokeMethod(
+          "setDimensions", {"width": renderBox.size.width, "height": renderBox.size.height});
     }
     _channel.setMethodCallHandler(
       (MethodCall call) async {
