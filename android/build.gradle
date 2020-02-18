@@ -6,6 +6,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenLocal()
     }
 
     dependencies {
@@ -21,6 +22,7 @@ rootProject.allprojects {
         maven {
             url 'https://repo.softmotions.com/repository/softmotions-public'
         }
+        mavenLocal()
     }
 }
 
@@ -50,5 +52,5 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.journeyapps:zxing-android-embedded:3.6.2"
+    implementation "com.journeyapps:zxing-android-embedded:3.6.3"
 }
